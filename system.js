@@ -136,8 +136,7 @@ class CollisionSystem {
 
 
 function simulate() {
-    if (collisionSystem.time > collisionSystem.maxTime) collisionSystem.paused = true;
-    while (!paused && !collisionSystem.eventHeap.isEmpty()) {
+    while (collisionSystem.time <= collisionSystem.maxTime && !collisionSystem.eventHeap.isEmpty()) {
         let e = collisionSystem.eventHeap.delMin();
         if (!e.isValid()) continue;
         for (let i = 0; i < collisionSystem.particles.length; i++) {
@@ -156,6 +155,7 @@ function simulate() {
         collisionSystem.predict(e.a);
         collisionSystem.predict(e.b);
     }
+    if (collisionSystem.time > collisionSystem.maxTime) paused = true;
     if (!paused)
         reqID = requestAnimationFrame(simulate);
 }
