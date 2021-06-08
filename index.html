@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collision System</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="main-container" class="container justify-content-center">
+        <div id="controls" class="row justify-content-center">
+            <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="First group">
+                <div class="btn-group me-2" role="group" aria-label="Play Control">
+                    <button id="play-button" type="button" class="btn btn-primary" onclick="play()">Play</button>
+                    <button id="pause-button" type="button" class="btn btn-primary" onclick="pause()">Pause</button>
+                    <button id="reset-button" type="button" class="btn btn-primary" onclick="reset()">Reset</button>
+                </div>
+                <div class="btn-group me-2" role="group" aria-label="Second group">
+                    <button type="button" class="btn btn-secondary" onclick="brownian()">Brownian</button>
+                    <button type="button" class="btn btn-secondary" onclick="diffusion()">Diffusion</button>
+                </div>
+                <div class="justify-content-start">
+                    <label class="form-label" id="display-n"></label>
+                    <input type="range" class="form-range" min="200" max="1000" step="50" id="particle-count-slider"
+                        oninput="slider()">
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col justify-content-center">
+                <canvas id="my-canvas"></canvas>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="global.js"></script>
+<script src="particle.js"></script>
+<script src="system.js"></script>
+
+</html>
